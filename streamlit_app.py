@@ -11,5 +11,5 @@ if st.button("I love you"):
 else:
     st.write("I love you though")
 
-st.button("Dont click it", type="primary")
-st.write("[click this link](https://www.youtube.com/watch?v=dQw4w9WgXcQ).")
+if st.button("Dont click it", type="primary"):
+    st.write("[click this link](https://www.youtube.com/watch?v=dQw4w9WgXcQ).")
