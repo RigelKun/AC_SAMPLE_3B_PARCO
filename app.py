@@ -6,7 +6,7 @@ if "page" not in st.session_state:
     st.session_state.page = "main"
     
 with st.sidebar:
-    if st.button("Main Menu"):
+    if st.button("Main Menu", type="tertiary"):
         st.session_state.page = "main"
     if st.button("Caesar Cipher"):
         st.session_state.page = "caesar"
