@@ -1,6 +1,6 @@
 import streamlit as st
 import main
-from ciphers import caesar, vigenere, block, rsa, diffie, primitive
+from ciphers import caesar, vigenere, block, rsa, diffie, primitive, hashing
 
 if "page" not in st.session_state:
     st.session_state.page = "main"
@@ -20,6 +20,8 @@ with st.sidebar:
         st.session_state.page = "block"
     if st.button("Primitive Root"):
         st.session_state.page = "primitive"
+    if st.button("SHA-256 hashing"):
+        st.session_state.page = "hashing"
 
 if st.session_state.page == "main":
     main.render()
@@ -35,3 +37,5 @@ elif st.session_state.page == "block":
     block.render()
 elif st.session_state.page == "primitive":
     primitive.render()
+elif st.session_state.page == "hashing":
+    hashing.render()
