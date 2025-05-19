@@ -20,7 +20,7 @@ with st.sidebar:
         st.session_state.page = "block"
     if st.button("Primitive Root"):
         st.session_state.page = "primitive"
-    if st.button("SHA-256 Hashing"):
+    if st.button("Hashing Algorithms"):
         st.session_state.page = "hashing"
 
 if st.session_state.page == "main":
