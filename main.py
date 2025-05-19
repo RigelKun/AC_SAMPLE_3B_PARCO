@@ -5,7 +5,7 @@ def render():
         st.session_state.page = "Main Menu"
 
     st.title("🔐 Project in Applied Cryptography")
-    st.subheader("An Interactive Cryptography Learning Tool")
+    st.subheader("An Interactive Cryptography Tool")
 
     st.markdown("""
     Welcome to our Applied Cryptography project! This app helps you explore and understand the core techniques

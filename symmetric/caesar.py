@@ -39,3 +39,8 @@ def render():
             st.success(f"Result: {result}")
             if any(not c.isalpha() and not c.isspace() for c in text):
                 st.info("Note: Non-letter characters (e.g., punctuation, numbers) were left unchanged.")
+
+    st.markdown("---")
+    if st.button("⬅️ Back to Symmetric Algorithms"):
+        st.session_state.sym_page = "menu"
+        st.rerun()

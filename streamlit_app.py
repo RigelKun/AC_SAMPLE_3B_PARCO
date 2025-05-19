@@ -6,7 +6,9 @@ from ciphers import hashing, asymmetric, symmetric
 def render():
     if "page" not in st.session_state:
         st.session_state.page = "Main Menu"
-
+    if "sym_page" not in st.session_state:
+        st.session_state.sym_page = "menu"
+        
     st.sidebar.title("🔍 Navigation")
     if st.sidebar.button("🏠 Main Menu"):
         st.session_state.page = "Main Menu"
@@ -14,6 +16,7 @@ def render():
         st.session_state.page = "Hashing Algorithms"
     if st.sidebar.button("🔒 Symmetric Algorithms"):
         st.session_state.page = "Symmetric Algorithms"
+        st.session_state.sym_page = "menu"
     if st.sidebar.button("🔓 Asymmetric Algorithms"):
         st.session_state.page = "Asymmetric Algorithms"
 
