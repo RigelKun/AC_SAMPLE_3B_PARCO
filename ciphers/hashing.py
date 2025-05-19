@@ -29,34 +29,36 @@ def hashing(data, mode):
 
 def render():
     st.title("🔐 Hashing Algorithms")
-    st.write("Hash text or files using different algorithms")
+    st.write("Hash **text** or **files** using cryptographic hash functions.")
 
     with st.expander("ℹ️ What are Hashing Algorithms?"):
-        st.write("""
-        Hashing algorithms are mathematical functions that convert data into a fixed-size string of characters, 
-        known as a hash value or digest. These algorithms are one-way functions, meaning it's computationally 
-        difficult to reverse the process and recover the original data. They are commonly used for data integrity checks, 
+        st.markdown("""
+        Hashing algorithms are mathematical functions that convert data into a 
+        fixed-size string of characters, known as a hash value or digest. These algorithms are one-way functions, meaning 
+        it's computationally difficult to reverse the process and recover the original data. They are commonly used for data integrity checks, 
         password storage, and in various data structures like hash tables. 
-
-        Common hashing algorithms include **MD5**, **SHA-1**, **SHA-2 (SHA-256)**, **SHA-3**, and **RIPEMD**. Each has different levels of security and performance.
+        
+        Some hashing algorithms are: **MD5**, **SHA-256**, **SHA-3**, **RIPEMD-160**
         """)
 
-    mode = st.radio("Choose hashing algorithm:", ["SHA-256", "MD5", "SHA-3(256)", "RIPEMD(160)"])
+    mode = st.radio("🔢 Choose hashing algorithm:", ["SHA-256", "MD5", "SHA-3(256)", "RIPEMD(160)"])
+    
+    input_type = st.radio("📥 Select input type:", ["Text", "File"])
 
-    st.write("### Enter text or upload a file to hash")
+    data = None
+    if input_type == "Text":
+        text = st.text_area("📝 Enter text:")
+        if text.strip():
+            data = text.encode('utf-8')
+    else:
+        uploaded_file = st.file_uploader("📂 Upload a file to hash")
+        if uploaded_file:
+            data = uploaded_file.read()
 
-    text = st.text_area("Enter text to hash:")
-    uploaded_file = st.file_uploader("Or upload a file")
-
-    if st.button("Run Hash Function"):
-        if not text.strip() and uploaded_file is None:
-            st.error("Please enter some text or upload a file to hash.")
+    if st.button("🔄 Run Hash Function"):
+        if data is None:
+            st.error("⚠️ Please provide input (text or file).")
         else:
-            if uploaded_file is not None:
-                file_bytes = uploaded_file.read()
-                result = hashing(file_bytes, mode)
-                st.success(f"Hash of file '{uploaded_file.name}' using {mode}: {result}")
-            else:
-                text_bytes = text.encode('utf-8')
-                result = hashing(text_bytes, mode)
-                st.success(f"Hash of input text using {mode}: {result}")
+            result = hashing(data, mode)
+            label = uploaded_file.name if input_type == "File" and uploaded_file else "entered text"
+            st.success(f"✅ Hash of {label} using {mode}:\n\n`{result}`")
