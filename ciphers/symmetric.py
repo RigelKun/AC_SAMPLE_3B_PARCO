@@ -1,5 +1,5 @@
 import streamlit as st
-from symmetric import caesar, vigenere, vernam, aes, des
+from symmetric import caesar, rc4, vigenere, vernam, aes
 
 def render():
     if "sym_page" not in st.session_state:
@@ -31,9 +31,9 @@ def render():
                 "key": "aes",
             },
             {
-                "name": "DES",
-                "desc": "Legacy cipher, replaced by AES but still studied.",
-                "key": "des",
+                "name": "RC4",
+                "desc": "Operates by generating a pseudo-random stream of bytes, which is then XORed with the plaintext to create the ciphertext.",
+                "key": "rc4",
             },
         ]
 
@@ -56,8 +56,8 @@ def render():
             vernam.render()
         elif st.session_state.sym_page == "aes":
             aes.render()
-        elif st.session_state.sym_page == "des":
-            des.render()
+        elif st.session_state.sym_page == "rc4":
+            rc4.render()
 
     if st.button("⬅️ Back to Main Menu"):
         st.session_state.page = "Main Menu"

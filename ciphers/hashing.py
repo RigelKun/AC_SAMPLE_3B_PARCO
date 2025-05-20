@@ -62,3 +62,7 @@ def render():
             result = hashing(data, mode)
             label = uploaded_file.name if input_type == "File" and uploaded_file else "entered text"
             st.success(f"✅ Hash of {label} using {mode}:\n\n`{result}`")
+            
+    if st.button("⬅️ Back to Main Menu"):
+        st.session_state.page = "Main Menu"
+        st.rerun()

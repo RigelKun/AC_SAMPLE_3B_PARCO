@@ -100,7 +100,8 @@ def render():
                 st.text_area("Decrypted Text", plain, height=150)
             except Exception:
                 st.error("Failed to convert ASCII to text. The key or ciphertext may be incorrect.")
-
+                
+    st.markdown("---")
     if st.button("⬅️ Back to Symmetric Menu"):
         st.session_state.sym_page = "menu"
         st.rerun()
