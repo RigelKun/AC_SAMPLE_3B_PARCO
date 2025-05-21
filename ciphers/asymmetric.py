@@ -20,11 +20,6 @@ def render():
                 "desc": "Secure key exchange protocol using modular exponentiation.",
                 "key": "diffie",
             },
-            {
-                "name": "Elliptic Curve Cryptography (ECC)",
-                "desc": "Efficient encryption using elliptic curve mathematics.",
-                "key": "ecc",
-            },
         ]
 
         for cipher in ciphers:
@@ -42,8 +37,6 @@ def render():
             rsa.render()
         elif st.session_state.asym_page == "diffie":
             diffie.render()
-        elif st.session_state.asym_page == "ecc":
-            ecc.render()
             
     if st.button("⬅️ Back to Main Menu"):
         st.session_state.page = "Main Menu"
