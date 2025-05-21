@@ -1,5 +1,5 @@
 import streamlit as st
-from asymmetric import rsa, diffie, ecc
+from asymmetric import rsa, diffie
 
 def render():
     if "asym_page" not in st.session_state:
