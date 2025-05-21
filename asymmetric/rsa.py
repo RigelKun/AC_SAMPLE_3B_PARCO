@@ -1,7 +1,6 @@
 import streamlit as st
 from math import gcd
 
-# Primality check
 def is_prime(n):
     if n <= 1:
         return False
@@ -16,7 +15,6 @@ def is_prime(n):
         i += 6
     return True
 
-# Fast exponentiation
 def mod_exp(base, exp, mod):
     result = 1
     base %= mod
@@ -27,7 +25,6 @@ def mod_exp(base, exp, mod):
         base = (base * base) % mod
     return result
 
-# Modular inverse
 def mod_inverse(e, t):
     for d in range(2, t):
         if (e * d) % t == 1:
@@ -39,22 +36,38 @@ def render():
 
     with st.expander("ℹ️ How RSA Works"):
         st.write("""
-        RSA is a way to securely send messages using two special keys:
-
-        - **Public key** — you share this with everyone. People use it to lock (encrypt) messages they want to send to you.
-        - **Private key** — you keep this secret. Only you can use it to unlock (decrypt) the messages sent with your public key.
-
-        Here’s the basic process:
+        RSA (Rivest-Shamir-Adleman) is a widely used public-key cryptosystem. It's an asymmetric encryption algorithm, meaning it uses two different but 
+        mathematically linked keys: a public key for encryption and a private key for decryption. 
+        This system is fundamental for secure communication and digital signatures, especially over the internet.          
         
-        1. You pick two large prime numbers and multiply them together to create a number called **n**.
-        2. From these primes, you generate two keys: one public and one private.
-        3. When someone wants to send you a message, they use your public key to encrypt it — turning the message into something unreadable.
-        4. When you get the message, you use your private key to decrypt it back to the original text.
+        RSA is a method to securely send messages using two keys:
 
-        This way, even if someone intercepts the encrypted message, they can’t read it without your private key.
+        - **Public key** (e, n): Anyone can use this to encrypt a message for you.
+        - **Private key** (d, n): Only you use this to decrypt messages sent with your public key.
 
-        The app lets you enter your primes and keys, encrypt messages using the public key, and decrypt messages using the private key — all while keeping spaces and letter casing intact.
+        **How it works:**
+
+        1. Pick two prime numbers (p and q) and multiply them to get n.
+        2. Generate two keys: a public key (e, n) and a private key (d, n).
+        3. To send a message, convert each letter to its ASCII number (for example, 'b' = 98).
+        4. Encrypt each number using the public key — this produces a new number that looks random.
+        5. To read the message, use the private key to decrypt those numbers back into the original letters.
+
+        **Example with the word “bob”:**
+
+        - The letters are converted to ASCII numbers:  
+          'b' → 98, 'o' → 111, 'b' → 98
+
+        - Using the public key, these numbers are encrypted to:  
+          516 1270 516  
+
+        - Only someone with the private key can convert these numbers back to 'b', 'o', 'b'.
+
+        This shows how RSA keeps your messages secret by turning letters into encrypted numbers.
         """)
+
+
+
 
 
     st.subheader("🔧 Key Generation")
