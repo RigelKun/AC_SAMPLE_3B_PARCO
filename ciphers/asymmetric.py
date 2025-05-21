@@ -1,5 +1,5 @@
 import streamlit as st
-from asymmetric import rsa, diffie, ecc, eg, dsa
+from asymmetric import rsa, diffie, ecc
 
 def render():
     if "asym_page" not in st.session_state:
@@ -25,16 +25,6 @@ def render():
                 "desc": "Efficient encryption using elliptic curve mathematics.",
                 "key": "ecc",
             },
-            {
-                "name": "ElGamal",
-                "desc": "Asymmetric encryption based on the Diffie-Hellman key exchange.",
-                "key": "eg",
-            },
-            {
-                "name": "DSA",
-                "desc": "Digital Signature Algorithm for message authentication.",
-                "key": "dsa",
-            },
         ]
 
         for cipher in ciphers:
@@ -54,11 +44,7 @@ def render():
             diffie.render()
         elif st.session_state.asym_page == "ecc":
             ecc.render()
-        elif st.session_state.asym_page == "eg":
-            eg.render()
-        elif st.session_state.asym_page == "dsa":
-            dsa.render()
-
+            
     if st.button("⬅️ Back to Main Menu"):
         st.session_state.page = "Main Menu"
         st.session_state.asym_page = "menu"
