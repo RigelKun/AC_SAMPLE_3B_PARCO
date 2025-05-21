@@ -15,14 +15,37 @@ def render():
     st.title("🔐 Caesar Cipher")
     st.write("Encrypt or decrypt a message using the Caesar Cipher.")
 
-    with st.expander("ℹ️ What is Caesar Cipher?"):
-        st.write("""
-        The Caesar cipher is a basic encryption technique that shifts each letter 
-        in a message by a fixed number of positions down the alphabet. It's a substitution cipher, 
-        meaning each letter is replaced with another letter according to a predefined rule. 
-    
-        Non-letter characters like spaces and punctuation are not changed.
+    with st.expander("ℹ️ What is the Caesar Cipher?"):
+        st.markdown("""
+        The **Caesar Cipher** is one of the simplest and oldest known encryption techniques.  
+        It is a **symmetric substitution cipher** named after Julius Caesar, who reportedly used it to securely communicate with his generals.
+
+        ### Brief History:
+        - Used by Julius Caesar in ancient Rome to encrypt military messages.
+        - One of the earliest documented ciphers in cryptography.
+        - Though simple, it laid the foundation for modern encryption methods.
+
+        ### How It Works (Simplified Pseudocode):
+        ```
+        For each letter in the plaintext:
+            Shift the letter forward by a fixed number of positions (the key) in the alphabet.
+            Wrap around to the beginning if past 'Z'.
+        The shifted letters form the ciphertext.
+        ```
+        Decryption simply shifts letters backward by the same key.
+
+        ### Process Description:
+        - Choose a numeric key representing how many letters to shift (e.g., 3).
+        - Replace each letter in the message with the letter that appears *key* positions later in the alphabet.
+        - Non-alphabetical characters usually remain unchanged.
+        - This shifting creates a new encoded message that obscures the original text.
+
+        ### Use Cases:
+        - Educational tool to introduce concepts of encryption and cryptography.
+        - Simple puzzles and games.
+        - Historically used for confidential communication before modern ciphers existed.
         """)
+
 
     mode = st.radio("Choose mode:", ["Encrypt", "Decrypt"])
     input_type = st.radio("Input type:", ["Text", "File"])
