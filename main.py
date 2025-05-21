@@ -40,7 +40,7 @@ def render():
     st.markdown("""
     **👨‍💻 Project By:**  
     - Rigel Parco 
-    - Caren Joy Epress
+    - Caren Joy Epres
     - Kenth Lorenz Collao 
 
     **📘 Course:** Applied Cryptography – BSCS 3B  
