@@ -33,13 +33,28 @@ def render():
 
     with st.expander("ℹ️ What are Hashing Algorithms?"):
         st.markdown("""
-        Hashing algorithms are mathematical functions that convert data into a 
-        fixed-size string of characters, known as a hash value or digest. These algorithms are one-way functions, meaning 
-        it's computationally difficult to reverse the process and recover the original data. They are commonly used for data integrity checks, 
-        password storage, and in various data structures like hash tables. 
-        
-        Some hashing algorithms are: **MD5**, **SHA-256**, **SHA-3**, **RIPEMD-160**
-        """)
+            **Hashing algorithms** are cryptographic functions that take input data of any size and produce a fixed-size output called a **hash value** or **digest**.  
+            These algorithms are *one-way functions* — once data is hashed, it is computationally infeasible to retrieve the original input from the hash alone.
+
+            ### Brief History and Popular Algorithms:
+            - **MD5** (Message Digest 5): Developed in 1991 by Ronald Rivest, MD5 produces a 128-bit hash. It was widely used for data integrity checks but is now considered insecure due to vulnerabilities to collisions.
+            - **SHA-256** (Secure Hash Algorithm 256-bit): Part of the SHA-2 family designed by the NSA, released in 2001. It outputs a 256-bit hash and is currently widely used for security-critical applications.
+            - **SHA-3**: The latest member of the SHA family, standardized in 2015, based on the Keccak algorithm. It provides similar output sizes but a different internal design, offering resistance against various attacks.
+            - **RIPEMD-160**: Developed in the mid-1990s as an alternative to MD5 and SHA-1, producing a 160-bit hash. It remains used in some blockchain and cryptographic applications.
+
+            ### How Hashing Works (Simplified Overview):
+            1. Input data is processed in fixed-size blocks.
+            2. Each block is mixed with intermediate hash states using bitwise operations, modular addition, and compression functions.
+            3. After all blocks are processed, the final hash digest is produced.
+
+            ### Common Use Cases:
+            - Verifying data integrity (e.g., checksums for downloads)
+            - Password storage (storing hash instead of plaintext password)
+            - Digital signatures and certificates
+            - Cryptographic applications in blockchain and security protocols
+
+            Hashing ensures that even a tiny change in input data produces a drastically different hash, making it ideal for detecting tampering and verifying authenticity.
+            """)
 
     mode = st.radio("🔢 Choose hashing algorithm:", ["SHA-256", "MD5", "SHA-3(256)", "RIPEMD(160)"])
     
