@@ -26,17 +26,51 @@ def render():
     st.write("Encrypt or decrypt a message using the RC4 stream cipher.")
 
     with st.expander("ℹ️ What is RC4?"):
-        st.write("""
-        RC4 is a stream cipher that uses a secret key to generate a pseudo-random keystream. This keystream is XORed with the plaintext to produce ciphertext, and the same process is used to decrypt.
-        
-        **Example:**
-        - Plaintext: `Hello im bob`
-        - Key: `love`
-        - Encrypted Output: `¨�Í*Ñ)�©Ë#~E`  
-          *(Output limited to printable characters — some characters replaced by �)*
+        st.markdown("""
+        **RC4 (Rivest Cipher 4)** is a **symmetric stream cipher** known for its simplicity and speed. 
+        It generates a pseudo-random keystream from a secret key and XORs it with the plaintext to 
+        produce the ciphertext. The same operation is used for decryption.
 
-        ⚠️ RC4 may produce non-printable characters in the result. You can still decrypt correctly using the same key.
+        ### 🔍 Brief History:
+        - Designed by Ron Rivest in 1987.
+        - Originally a trade secret of RSA Security, later leaked and became widely used.
+        - Common in early protocols like SSL/TLS and WEP, but now deprecated due to discovered vulnerabilities.
+
+        ### 🧠 How It Works (Simplified Pseudocode):
+        ```
+        Key Scheduling Algorithm (KSA):
+            Initialize an array S with values from 0 to 255.
+            Use the key to shuffle the array S.
+
+        Pseudo-Random Generation Algorithm (PRGA):
+            For each byte of input:
+                Continuously update indices i and j and swap values in S.
+                Generate a keystream byte from S.
+                XOR the keystream byte with the plaintext byte to get the ciphertext.
+        ```
+
+        ### 🔐 Process Description:
+        - RC4 turns a key (usually a byte array) into a pseudo-random keystream.
+        - Each byte of the plaintext is XORed with a byte from the keystream.
+        - Decryption works the same way as encryption: `Cipher XOR Keystream = Plaintext`.
+
+        ### 🛠️ Use Cases:
+        - Previously used in WEP (Wi-Fi), SSL/TLS (HTTPS), and Microsoft PPTP VPN.
+        - Currently **not recommended** for secure applications due to bias and vulnerability issues.
+        - Still useful in educational demos and legacy systems.
+
+        ### ✉️ Example:
+        ```
+        Plaintext:  Hello im bob
+        Key:        love
+        Encrypted:  ¨�Í*Ñ)�©Ë#~E
+                    (Output limited to printable characters — others shown as �)
+        ```
+
+        ⚠️ **Note:** RC4 may produce non-printable or special characters in its output. 
+        The encrypted result may not display correctly, but decryption using the same key will still work.
         """)
+
 
     mode = st.radio("Choose mode:", ["Encrypt", "Decrypt"])
     input_type = st.radio("Input type:", ["Text", "File"])

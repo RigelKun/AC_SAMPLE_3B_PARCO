@@ -33,25 +33,43 @@ def render():
 
     with st.expander("ℹ️ What is the Vigenère Cipher?"):
         st.markdown("""
-        The Vigenère cipher is a method of encrypting alphabetic 
-        text using a polyalphabetic substitution technique, where each letter is encrypted 
-        using a different Caesar cipher determined by a keyword.
+        The **Vigenère Cipher** is a **symmetric polyalphabetic substitution cipher** invented in the 16th century by Giovan Battista Bellaso, 
+        but later misattributed to Blaise de Vigenère. It improves on the Caesar cipher by using a keyword to determine the shift of each character, 
+        making it harder to break with frequency analysis.
 
-        **Encryption formula:**
-        - `Ci = (Pi + Ki) mod 26`
+        ### 🔍 Brief History:
+        - Proposed by Giovan Battista Bellaso in 1553.
+        - Blaise de Vigenère later popularized the cipher, leading to its name.
+        - Once considered unbreakable, it was eventually broken using statistical methods in the 19th century.
 
-        **Decryption formula:**
-        - `Pi = (Ci - Ki + 26) mod 26`
+        ### 🧠 How It Works (Simplified Pseudocode):
+        ```
+        For each letter in the plaintext:
+            Use the corresponding letter from the keyword to determine Caesar shift.
+            Apply that shift to the plaintext letter.
+            Repeat the keyword if shorter than the message.
+        ```
 
-        Only alphabetic characters are encrypted. Non-alphabetic characters are preserved.
+        ### 🔐 Process Description:
+        - The cipher uses **a repeating keyword** to apply different Caesar shifts to each letter of the plaintext.
+        - A = 0, B = 1, ..., Z = 25.
+        - For encryption: `(Pi + Ki) mod 26`, where `Pi` is plaintext and `Ki` is keyword letter.
+        - For decryption: `(Ci - Ki + 26) mod 26`, where `Ci` is ciphertext.
+        - Non-alphabetic characters are not encrypted and remain unchanged.
 
-        **Example:**
+        ### 🛠️ Use Cases:
+        - Used historically for military and diplomatic communication.
+        - Useful for teaching cryptography fundamentals.
+        - Sometimes used in CTF (Capture the Flag) puzzles or escape rooms.
+
+        ### ✉️ Example:
         ```
         Plaintext:  ATTACKATDAWN
         Keyword:    LEMON
         Encrypted:  LXFOPVEFRNHR
         ```
         """)
+
 
     mode = st.radio("Mode", ["Encrypt", "Decrypt"])
     input_method = st.radio("Input Method", ["Type Text", "Upload File"])

@@ -17,33 +17,42 @@ def render():
 
     with st.expander("ℹ️ What is the Caesar Cipher?"):
         st.markdown("""
-        The **Caesar Cipher** is one of the simplest and oldest known encryption techniques.  
-        It is a **symmetric substitution cipher** named after Julius Caesar, who reportedly used it to securely communicate with his generals.
+        The **Caesar Cipher** is a **symmetric substitution cipher** and one of the oldest known encryption techniques. 
+        It was used by Julius Caesar to send confidential military messages by shifting each letter in the plaintext 
+        by a fixed number of positions down the alphabet.
 
-        ### Brief History:
-        - Used by Julius Caesar in ancient Rome to encrypt military messages.
-        - One of the earliest documented ciphers in cryptography.
-        - Though simple, it laid the foundation for modern encryption methods.
+        ### 🔍 Brief History:
+        - Named after Julius Caesar, who used it in 58 BC.
+        - One of the simplest and most well-known encryption techniques.
+        - Easily broken with brute force or frequency analysis, but foundational in cryptography education.
 
-        ### How It Works (Simplified Pseudocode):
+        ### 🧠 How It Works (Simplified Pseudocode):
         ```
         For each letter in the plaintext:
-            Shift the letter forward by a fixed number of positions (the key) in the alphabet.
-            Wrap around to the beginning if past 'Z'.
-        The shifted letters form the ciphertext.
+            Convert the letter to its alphabet index (A=0, B=1, ..., Z=25).
+            Add the shift key for encryption or subtract it for decryption.
+            Apply modulo 26 to wrap around the alphabet.
+            Convert the result back to a letter.
         ```
-        Decryption simply shifts letters backward by the same key.
 
-        ### Process Description:
-        - Choose a numeric key representing how many letters to shift (e.g., 3).
-        - Replace each letter in the message with the letter that appears *key* positions later in the alphabet.
-        - Non-alphabetical characters usually remain unchanged.
-        - This shifting creates a new encoded message that obscures the original text.
+        ### 🔐 Process Description:
+        - Each letter in the plaintext is shifted by a fixed number (the key).
+        - Encryption: `Ci = (Pi + key) mod 26`
+        - Decryption: `Pi = (Ci - key + 26) mod 26`
+        - Only alphabetic characters are encrypted; all others are left unchanged.
+        - The same key is used for both encryption and decryption.
 
-        ### Use Cases:
-        - Educational tool to introduce concepts of encryption and cryptography.
-        - Simple puzzles and games.
-        - Historically used for confidential communication before modern ciphers existed.
+        ### 🛠️ Use Cases:
+        - Originally used for secure military communication.
+        - Often used for puzzles, games, and teaching encryption fundamentals.
+        - Simple enough for manual implementation, making it a great learning tool.
+
+        ### ✉️ Example:
+        ```
+        Plaintext:  HELLO
+        Key:        3
+        Encrypted:  KHOOR
+        ```
         """)
 
 

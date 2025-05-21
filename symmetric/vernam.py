@@ -20,26 +20,51 @@ def generate_random_key(length):
 def render():
     st.title("🔐 Vernam Cipher (One-Time Pad)")
 
-    with st.expander("ℹ️ What is Vernam Cipher?"):
-        st.markdown(""" 
-        The Vernam Cipher is a symmetric encryption method that uses a numeric key as long as the message's ASCII representation.
+    with st.expander("ℹ️ What is the Vernam Cipher?"):
+        st.markdown("""
+        The **Vernam Cipher** is a **symmetric encryption** technique and a special case of the one-time pad cipher. 
+        It operates by combining a plaintext message with a numeric key of the same length using modular arithmetic.
 
-        **Encryption process overview:**
+        ### 🔍 Brief History:
+        - Invented by Gilbert Vernam in 1917.
+        - Originally used in telegraphy and early digital communications.
+        - When used with a truly random, one-time-use key (of equal length to the message), it becomes theoretically **unbreakable**.
 
-        1. Convert text to decimal ASCII (3-digit codes per char).
-        2. Provide a numeric key of the same length (or generate one).
-        3. Encrypt by digit-wise subtraction modulo 10.
-        4. Decrypt by digit-wise addition modulo 10.
-
-        **Example:**
-
+        ### 🧠 How It Works (Simplified Pseudocode):
         ```
-        Plaintext: HELLO
-        ASCII: 072069076076079
-        Key:    727272727272727
-        Cipher: 355897359804352
+        For Encryption:
+            1. Convert each character in the plaintext to its 3-digit ASCII code.
+            2. Generate a numeric key of the same length.
+            3. Perform digit-wise subtraction modulo 10:
+            C_i = (P_i - K_i + 10) mod 10
+
+        For Decryption:
+            1. Use the same numeric key.
+            2. Perform digit-wise addition modulo 10:
+            P_i = (C_i + K_i) mod 10
         ```
+
+        ### 🔐 Process Description:
+        - The cipher treats the ASCII code of the message as a numeric string.
+        - Encryption and decryption work digit by digit.
+        - The key must be purely numeric and exactly the same length as the ASCII-expanded plaintext.
+
+        ### 🛠️ Use Cases:
+        - Educational purposes to demonstrate the concept of **perfect secrecy**.
+        - Forms the basis for the **one-time pad**, used in highly secure communication systems.
+        - **Note**: Secure only if the key is random, the same length as the message, and never reused.
+
+        ### ✉️ Example:
+        ```
+        Plaintext:  HELLO
+        ASCII:      072069076076079
+        Key:        727272727272727
+        Encrypted:  355897359804352
+        ```
+
+        ⚠️ **Important**: The key must be a numeric string with the same number of digits as the ASCII version of the message. Otherwise, encryption/decryption will fail or produce incorrect results.
         """)
+
 
     mode = st.radio("Mode", ["Encrypt", "Decrypt"])
 
