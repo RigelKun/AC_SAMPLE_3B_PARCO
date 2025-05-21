@@ -27,9 +27,15 @@ def render():
 
     with st.expander("ℹ️ What is RC4?"):
         st.write("""
-        RC4 is a stream cipher that generates a pseudo-random keystream based on a secret key.
-        It XORs the keystream with the plaintext to produce ciphertext (and vice versa for decryption).
-        While historically popular, it is no longer considered secure for modern use.
+        RC4 is a stream cipher that uses a secret key to generate a pseudo-random keystream. This keystream is XORed with the plaintext to produce ciphertext, and the same process is used to decrypt.
+        
+        **Example:**
+        - Plaintext: `Hello im bob`
+        - Key: `love`
+        - Encrypted Output: `¨�Í*Ñ)�©Ë#~E`  
+          *(Output limited to printable characters — some characters replaced by �)*
+
+        ⚠️ RC4 may produce non-printable characters in the result. You can still decrypt correctly using the same key.
         """)
 
     mode = st.radio("Choose mode:", ["Encrypt", "Decrypt"])
@@ -60,14 +66,6 @@ def render():
             result = rc4(key, text)
             st.success("✅ Operation successful!")
             st.text_area("Result:", value=result, height=200)
-
-            if input_type == "File":
-                st.download_button(
-                    label="📥 Download Result",
-                    data=result.encode(),
-                    file_name=f"{mode.lower()}ed_{filename or 'output.txt'}",
-                    mime="text/plain"
-                )
 
     st.markdown("---")
     if st.button("⬅️ Back to Symmetric Algorithms"):
