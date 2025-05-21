@@ -55,27 +55,45 @@ def is_primitive_root(g: int, p: int) -> bool:
 def render():
     st.title("🔐 Diffie-Hellman Key Exchange")
     with st.expander("ℹ️ What is Diffie-Hellman Key Exchange?"):
-        st.write("""
-        **Diffie-Hellman key exchange** is a secure method that lets two parties generate a **shared secret key** over an insecure channel, without revealing their private keys.
-        
-        Here’s how it works in simple terms:
-        
-        - Both users agree on a large prime number `p` and a generator `g`.
-        - Each picks a private key (secret number), computes a public key, and exchanges the public keys.
-        - Using their own private key and the other’s public key, both compute the **same shared secret key**.
-        
-        This shared secret is a **number** (e.g., 18) that only they know, even if someone is eavesdropping.
-        
-        Since the **Vigenère cipher** requires a key made of letters, we convert this number into a string of letters to use as the cipher key:
-        
-        - Convert each digit of the shared number into a letter by mapping `0 → A`, `1 → B`, `2 → C`, ..., `9 → J`.
-        - For example, `18` becomes `B` (for 1) and `I` (for 8), so the key is `"BI"`.
-        - This key is repeated or truncated to match the length of the message.
-        
-        The shared secret number thus seeds the Vigenère key, allowing **secure encryption and decryption** of messages.
-        
-        This combination leverages Diffie-Hellman’s secure key exchange with Vigenère’s classic substitution cipher.
+        st.markdown("""
+        The **Diffie-Hellman Key Exchange** is an **asymmetric key exchange protocol** that allows two parties to securely generate a shared secret key over an insecure communication channel.
+
+        ### 🔍 Brief History:
+        - Proposed in 1976 by Whitfield Diffie and Martin Hellman.
+        - The first practical method enabling secure key exchange without prior shared secrets.
+        - Fundamental in modern cryptography and widely used in protocols like TLS.
+
+        ### 🧠 How It Works (Simplified Pseudocode):
+        ```
+        Agree on a large prime number p and generator g
+        Each user picks a private key (a, b)
+        Compute public keys: A = g^a mod p, B = g^b mod p
+        Exchange public keys A and B
+        Compute shared secret: s = B^a mod p = A^b mod p
+        ```
+
+        ### 🔐 Process Description:
+        - Both parties agree on public parameters p (prime) and g (generator).
+        - Each chooses a private key and computes their public key.
+        - By exchanging public keys and performing modular exponentiation with their private keys, both compute the same shared secret number.
+        - This shared secret can then be converted into a symmetric key for encryption algorithms.
+
+        ### 🛠️ Use Cases:
+        - Securely establishing symmetric keys over insecure channels.
+        - Foundation for secure communications in internet protocols.
+        - Often combined with classical ciphers to provide encryption keys.
+
+        ### ✉️ Example:
+        ```
+        Shared secret number: 18
+        Converted key for Vigenère cipher: "BI"
+        ```
+        Here, digit '1' maps to 'B' and '8' maps to 'I', which is then used as the Vigenère cipher key.
         """)
+
+        
+        
+        
     st.header("1. Diffie-Hellman Key Exchange")
 
     p = st.number_input("Enter prime number (p):", min_value=2, value=23)

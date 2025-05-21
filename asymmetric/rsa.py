@@ -35,35 +35,53 @@ def render():
     st.title("🔐 RSA Encryption / Decryption")
 
     with st.expander("ℹ️ How RSA Works"):
-        st.write("""
-        RSA (Rivest-Shamir-Adleman) is a widely used public-key cryptosystem. It's an asymmetric encryption algorithm, meaning it uses two different but 
-        mathematically linked keys: a public key for encryption and a private key for decryption. 
-        This system is fundamental for secure communication and digital signatures, especially over the internet.          
-        
-        RSA is a method to securely send messages using two keys:
+        st.markdown("""
+        The **RSA (Rivest-Shamir-Adleman)** algorithm is a widely used **asymmetric public-key cryptosystem**. 
+        It uses a pair of mathematically linked keys — a public key for encryption and a private key for decryption — 
+        making it essential for secure communication and digital signatures, especially on the internet.
 
-        - **Public key** (e, n): Anyone can use this to encrypt a message for you.
-        - **Private key** (d, n): Only you use this to decrypt messages sent with your public key.
+        ### 🔍 Brief History:
+        - Developed in 1977 by Ron Rivest, Adi Shamir, and Leonard Adleman.
+        - One of the first practical public-key cryptosystems.
+        - Forms the backbone of many secure communication protocols today.
 
-        **How it works:**
+        ### 🧠 How It Works (Simplified Pseudocode):
+        ```
+        Choose two large primes p and q
+        Compute n = p * q
+        Calculate totient t = (p-1)*(q-1)
+        Choose public key exponent e such that 1 < e < t and gcd(e, t) = 1
+        Calculate private key exponent d such that (d * e) mod t = 1
 
-        1. Pick two prime numbers (p and q) and multiply them to get n.
-        2. Generate two keys: a public key (e, n) and a private key (d, n).
-        3. To send a message, convert each letter to its ASCII number (for example, 'b' = 98).
-        4. Encrypt each number using the public key — this produces a new number that looks random.
-        5. To read the message, use the private key to decrypt those numbers back into the original letters.
+        Encryption: For each plaintext number m,
+            ciphertext c = (m^e) mod n
 
-        **Example with the word “bob”:**
+        Decryption: For each ciphertext number c,
+            plaintext m = (c^d) mod n
+        ```
 
-        - The letters are converted to ASCII numbers:  
-          'b' → 98, 'o' → 111, 'b' → 98
+        ### 🔐 Process Description:
+        - Two large primes (p and q) generate modulus n.
+        - Public key (e, n) encrypts messages by modular exponentiation.
+        - Private key (d, n) decrypts messages by modular exponentiation.
+        - Messages are converted into numeric form (e.g., ASCII codes) before encryption.
+        - Only the holder of the private key can decrypt and recover the original message.
 
-        - Using the public key, these numbers are encrypted to:  
-          516 1270 516  
+        ### 🛠️ Use Cases:
+        - Secure transmission of messages and data.
+        - Digital signatures and certificate authorities.
+        - Basis for many internet security protocols such as TLS/SSL.
 
-        - Only someone with the private key can convert these numbers back to 'b', 'o', 'b'.
+        ### ✉️ Example with the word “bob”:
+        - Convert letters to ASCII numbers:  
+        'b' → 98, 'o' → 111, 'b' → 98
 
-        This shows how RSA keeps your messages secret by turning letters into encrypted numbers.
+        - Encrypt with public key → Ciphertext:  
+        516 1270 516
+
+        - Only the private key can decrypt these back to 'b', 'o', 'b'.
+
+        This demonstrates how RSA transforms readable text into encrypted numbers, ensuring message secrecy.
         """)
 
 
