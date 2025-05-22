@@ -176,14 +176,36 @@ SHA-256: d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592
 ```
 Plaintext: HELLO
 Key: 3
-Ciphertext: KHOOR
+Ciphertext: KHOOR'
 ```
 
+**Vigenère Cipher Example:**  
+```
+Plaintext: HELLOCRYPTOGRAPHY
+Key: KEY
+Ciphertext: RIJVSUYVJNVEVIGXW'
+```
+
+**Vernam Cipher Example:**  
+```
+Plaintext: HELLO
+Generated Key: 876634205963221891
+Ciphertext: 206435871113858229'
+
+```
 **AES Example:**  
 ```
-Plaintext: secret message
-Key: mysecretkey12345
-Encrypted (Base64): b'k9f8...'
+Plaintext: HelloAESExample
+Key Size (Bits): 128
+Key (16-character): thisisasecretkey
+Ciphertext (Base64): 2HVN8MNsQmSE7sMXX6KyMg=='
+
+```
+**RC4 Example:**  
+```
+Plaintext: HelloWorld
+Key: mysecretkey
+Encrypted: ¢¶Ô¯Qâ¬i47'
 ```
 
 ---
