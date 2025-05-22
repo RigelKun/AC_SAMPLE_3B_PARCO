@@ -2,6 +2,9 @@
 **Course:** CSAC 329 – Applied Cryptography  
 **Date:** May 21, 2025  
 
+### Try the app 👇
+[![Click me to open!](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sample-app-3b-parco.streamlit.app)
+
 ---
 
 ## 👥 Group Members
@@ -200,22 +203,40 @@ Decrypted: hello
 streamlit run streamlit_app.py
 ```
 
-# 🎈 Blank app template
+## 🚀 How to Run This Streamlit App
+Follow the steps below to set up and run this Streamlit app on your local machine.
 
-A simple Streamlit app template for you to modify!
+### 📦 Prerequisites
+- Python **3.7 or higher** installed  
+- `pip` (Python package manager)
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sample-app-3b-parco.streamlit.app)
+### 🛠️ Installation & Setup
 
-### How to run it on your own machine
+#### 🔁 Clone the repository
+Open your terminal or command prompt and run:
 
-1. Install the requirements
+```bash
+git clone https://github.com/RigelKun/AC_SAMPLE_3B_PARCO
+```
 
-   ```
-   $ pip install -r requirements.txt
-   ```
+#### 🧪 (Optional) Create and activate a virtual environment
+It’s recommended to use a virtual environment:
 
-2. Run the app
+```bash
+python -m venv venv
+source venv/bin/activate       # On Windows: venv\Scripts\activate
+```
 
-   ```
-   $ streamlit run app.py
-   ```
+#### 📥 Install the required packages
+Run the following command to install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### ▶️ Run the App
+To start the app, run:
+
+```bash
+streamlit run streamlit_app.py
+```
