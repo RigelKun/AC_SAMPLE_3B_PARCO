@@ -226,7 +226,7 @@ Ciphertext Numbers: 1693
 Decrypted: A
 ```
 
-**RSA Example:**
+**Diffie-Helman Example:**
 ![Asymmetric Algorithms](images/Diffie.png)
 
 
