@@ -172,28 +172,31 @@ SHA-256: d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592
 **UI Example:**  
 ![Symmetric Algorithms](images/symmetric.png)
 
-**Caesar Cipher Example:**  
+**Caesar Cipher Example:** 
 ```
 Plaintext: HELLO
 Key: 3
 Ciphertext: KHOOR'
 ```
 
-**Vigenère Cipher Example:**  
+**Vigenère Cipher Example:**
+![Vigenère Cipher](images/Vigenere.png)
 ```
 Plaintext: HELLOCRYPTOGRAPHY
 Key: KEY
 Ciphertext: RIJVSUYVJNVEVIGXW'
 ```
 
-**Vernam Cipher Example:**  
+**Vernam Cipher Example:**
+![Vernam Cipher](images/Vernam.png)
 ```
 Plaintext: HELLO
 Generated Key: 876634205963221891
 Ciphertext: 206435871113858229'
 
 ```
-**AES Example:**  
+**AES Example:**
+![AES (ECB Mode)](images/AES.png)
 ```
 Plaintext: HelloAESExample
 Key Size (Bits): 128
@@ -201,7 +204,8 @@ Key (16-character): thisisasecretkey
 Ciphertext (Base64): 2HVN8MNsQmSE7sMXX6KyMg=='
 
 ```
-**RC4 Example:**  
+**RC4 Example:** 
+![RC4 Stream Cipher](images/RC4.png)
 ```
 Plaintext: HelloWorld
 Key: mysecretkey
