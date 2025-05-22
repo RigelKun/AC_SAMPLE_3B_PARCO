@@ -176,7 +176,7 @@ SHA-256: d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592
 ```
 Plaintext: HELLO
 Key: 3
-Ciphertext: KHOOR'
+Ciphertext: KHOOR
 ```
 
 **Vigenère Cipher Example:**
@@ -184,7 +184,7 @@ Ciphertext: KHOOR'
 ```
 Plaintext: HELLOCRYPTOGRAPHY
 Key: KEY
-Ciphertext: RIJVSUYVJNVEVIGXW'
+Ciphertext: RIJVSUYVJNVEVIGXW
 ```
 
 **Vernam Cipher Example:**
@@ -192,7 +192,7 @@ Ciphertext: RIJVSUYVJNVEVIGXW'
 ```
 Plaintext: HELLO
 Generated Key: 876634205963221891
-Ciphertext: 206435871113858229'
+Ciphertext: 206435871113858229
 
 ```
 **AES Example:**
@@ -201,7 +201,7 @@ Ciphertext: 206435871113858229'
 Plaintext: HelloAESExample
 Key Size (Bits): 128
 Key (16-character): thisisasecretkey
-Ciphertext (Base64): 2HVN8MNsQmSE7sMXX6KyMg=='
+Ciphertext (Base64): 2HVN8MNsQmSE7sMXX6KyMg==
 
 ```
 **RC4 Example:** 
@@ -209,7 +209,7 @@ Ciphertext (Base64): 2HVN8MNsQmSE7sMXX6KyMg=='
 ```
 Plaintext: HelloWorld
 Key: mysecretkey
-Encrypted: ¢¶Ô¯Qâ¬i47'
+Encrypted: ¢¶Ô¯Qâ¬i47
 ```
 
 ---
@@ -217,17 +217,18 @@ Encrypted: ¢¶Ô¯Qâ¬i47'
 ### Asymmetric Algorithms
 
 **UI Example:**  
-![Asymmetric Algorithms](images/asymmetric.png)
+![Asymmetric Algorithms](images/RSA.png)
 
 **RSA Example:**  
 ```
-Plaintext: hello
-Public Key: (n=..., e=...)
-Encrypted: b'...'
-Decrypted: hello
+Encrypted: A
+Ciphertext Numbers: 1693
+Decrypted: A
 ```
 
----
+**RSA Example:**
+![Asymmetric Algorithms](images/Diffie.png)
+
 
 ## 📚 References
 
