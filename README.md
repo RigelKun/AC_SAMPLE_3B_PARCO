@@ -78,49 +78,63 @@ AC_SAMPLE_3B_PARCO/
 - **Library:** `hashlib`
 - **Integration:** Available in the Hashing Algorithms section for both text and files.
 
-#### 3. **Caesar Cipher (Symmetric)**
+#### 3. **SHA-3 (256) (Hash)**  
+- **Type:** Hash Function  
+- **History:** Introduced by NIST in 2015 as part of the SHA-3 family, based on the Keccak algorithm.  
+- **How it Works:** Uses sponge construction to absorb input and squeeze out a 256-bit hash.  
+- **Library:** `hashlib`  
+- **Integration:** Users can input text or upload a file; the app instantly displays the SHA-3 hash.
+
+#### 4. **RIPEMD-160 (Hash)**  
+- **Type:** Hash Function  
+- **History:** Developed in the 1990s by Hans Dobbertin and others as a European alternative to MD5/SHA.  
+- **How it Works:** Processes data in 512-bit blocks and produces a 160-bit message digest using two parallel processing streams.  
+- **Library:** `Crypto.Hash.RIPEMD` from `PyCryptodome`  
+- **Integration:** The app computes the RIPEMD-160 hash for text and file inputs on user request.
+
+#### 5. **Caesar Cipher (Symmetric)**
 - **Type:** Symmetric Cipher
 - **History:** Ancient Roman cipher, one of the earliest known encryption techniques.
 - **How it Works:** Shifts each letter in the plaintext by a fixed number (key).
 - **Library:** Custom implementation
 - **Integration:** Users enter text and a shift key; the app displays the encrypted or decrypted result.
 
-#### 4. **Vigenère Cipher (Symmetric)**
+#### 6. **Vigenère Cipher (Symmetric)**
 - **Type:** Symmetric Cipher
 - **History:** Invented in the 16th century, uses a keyword to shift letters.
 - **How it Works:** Each letter is shifted by the corresponding letter in the keyword (repeated as needed).
 - **Library:** Custom implementation
 - **Integration:** Users provide text and a keyword; the app handles encryption/decryption.
 
-#### 5. **Vernam Cipher (Symmetric)**
+#### 7. **Vernam Cipher (Symmetric)**
 - **Type:** Symmetric Cipher (One-Time Pad)
 - **History:** Invented by Gilbert Vernam in 1917, theoretically unbreakable if the key is truly random and as long as the message.
 - **How it Works:** XORs each character of the plaintext with a character from the key.
 - **Library:** Custom implementation
 - **Integration:** Users input text and a key; the app performs XOR encryption/decryption.
 
-#### 6. **AES (Symmetric)**
+#### 8. **AES (Symmetric)**
 - **Type:** Symmetric Block Cipher
 - **History:** Standardized by NIST in 2001, widely used for secure data encryption.
 - **How it Works:** Encrypts data in 128-bit blocks using substitution-permutation networks and a secret key.
 - **Library:** `pycryptodome`
 - **Integration:** Users enter text and a key; the app encrypts/decrypts and displays the result.
 
-#### 7. **RC4 (Symmetric)**
+#### 9. **RC4 (Symmetric)**
 - **Type:** Symmetric Stream Cipher
 - **History:** Designed by Ron Rivest in 1987, once widely used but now considered insecure.
 - **How it Works:** Generates a pseudo-random stream of bytes, which is XORed with the plaintext.
 - **Library:** Custom implementation
 - **Integration:** Users provide text and a key; the app encrypts/decrypts accordingly.
 
-#### 8. **RSA (Asymmetric)**
+#### 10. **RSA (Asymmetric)**
 - **Type:** Asymmetric Cipher
 - **History:** Invented in 1977 by Rivest, Shamir, and Adleman; based on the difficulty of factoring large integers.
 - **How it Works:** Uses a public/private key pair for encryption and decryption.
 - **Library:** `pycryptodome`
 - **Integration:** Users can generate keys, encrypt, and decrypt messages in the Asymmetric Algorithms section.
 
-#### 9. **Diffie-Hellman (Asymmetric)**
+#### 11. **Diffie-Hellman (Asymmetric)**
 - **Type:** Key Exchange Protocol
 - **History:** Introduced by Whitfield Diffie and Martin Hellman in 1976.
 - **How it Works:** Allows two parties to securely exchange cryptographic keys over a public channel using modular exponentiation.
