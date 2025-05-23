@@ -45,7 +45,7 @@ def render():
         Plaintext:  helloworld
         Key:        thiskeylongerfrf
         Key Size:   128 bits
-        Ciphertext: fbsc9OsCpFSKVtXTSt31OFzvqaxxxTN8HuBGbCqqdXw=
+        Ciphertext: i+e1yOz97HaUm0qgJj8Zrw==
         ```
 
         ⚠️ **Note:** ECB mode is **not secure** for large or patterned data. Use **CBC, GCM, or other secure modes** for real-world applications.
