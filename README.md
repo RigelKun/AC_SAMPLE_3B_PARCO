@@ -5,6 +5,7 @@
 ### Try the app 👇
 [![Click me to open!](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sample-app-3b-parco.streamlit.app)
 
+### Video Demonstration: https://youtu.be/J8Qtugws_4k?si=bxGYyFfHZ60ru812
 ---
 
 ## 👥 Group Members
